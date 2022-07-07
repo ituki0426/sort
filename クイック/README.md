@@ -26,6 +26,33 @@
 ![image](https://user-images.githubusercontent.com/82156802/177675278-2b405703-2eaa-4cae-813d-bc9940ce7522.png)
 
 
+```c
+void quick(int a[],int left,int right){
+	int s,t,i,j;
+	if(left<right){
+		s=a[left];
+		//+1する理由はのちのコードでwhile(a[--j]>s)とするからである。
+		//--jなので先に1を引く。そのためj=rightとしてしまうと一番右の値が読み込まれない。
+		j=right+1;
+		//一番左は軸となる値なので、読み込まないため、+1をしない。
+		i=left;
+		while (1){
+			while (a[++i]<s);//左から検索。軸より小さい値があれば終了
+			while (a[--i]>s);//右から検索。軸より大きい値があれば終了
+			if(i>=j) break;
+			t=a[i];
+			a[i]=a[j];
+			a[j]=t;
+		}
+		//この時jの添え字は左側のグループの一番右側の値の添え字
+		//そして、軸となった値とj番目にある値を入れ替える。
+		//そして、j番目の値はソートが完了する。
+		quick(a,left,j-1);
+		quick(a,j+1,right);
+		//j番目の値はソートが完了しているため、以下の再帰呼び出しではj番目の値を避ける。
+	}
+}
+```
 # サンプルコード
 
 ## 1.降順にソートするプログラム
