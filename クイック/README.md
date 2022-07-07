@@ -25,6 +25,8 @@
 
 ![image](https://user-images.githubusercontent.com/82156802/177675278-2b405703-2eaa-4cae-813d-bc9940ce7522.png)
 
+![image](https://user-images.githubusercontent.com/82156802/177682270-fe002e30-03e7-4a57-99ec-ac3f0fb605dd.png)
+
 
 ```c
 void quick(int a[],int left,int right){
